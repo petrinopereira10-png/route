@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteWise | Smart Algorithm Workspace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <aside class="sidebar">
+        <a class="brand" href="#" onclick="showPage('home'); return false;">
+            <span class="brand-mark">R</span>
+            <span>RouteWise<small>ALGORITHM WORKSPACE</small></span>
+        </a>
+
+        <p class="nav-label">WORKSPACE</p>
+
+        <button class="nav-item active" id="nav-home"
+                onclick="showPage('home')">
+            <span>⌂</span> Overview
+        </button>
+
+        <button class="nav-item" id="nav-route"
+                onclick="showPage('route')">
+            <span>⌁</span> Distance & Routes
+        </button>
+
+        <button class="nav-item" id="nav-plagiarism"
+                onclick="showPage('plagiarism')">
+            <span>▤</span> Plagiarism Lab
+        </button>
+
+        <div class="sidebar-bottom">
+            <span class="status-dot"></span>
+            <span>Local workspace</span>
+            <small>Python · Flask</small>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">SMART TOOLS FOR COMPLEX PROBLEMS</p>
+                <h1 id="page-title">Your algorithm workspace</h1>
+            </div>
+            <span class="version">PROJECT EDITION</span>
+        </header>
+
+        <section id="page-home" class="page">
+            <div class="hero">
+                <div class="hero-copy">
+                    <span class="pill">BUILT WITH ALGORITHMS</span>
+                    <h2>Plan smarter.<br>Compare with confidence.</h2>
+                    <p>
+                        Optimize delivery journeys across real places and
+                        examine documents for matching passages and similarity.
+                    </p>
+                </div>
+                <div class="hero-symbol" aria-hidden="true">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <div class="orbit-core">R</div>
+                    <span class="orbit-point point-one"></span>
+                    <span class="orbit-point point-two"></span>
+                    <span class="orbit-point point-three"></span>
+                </div>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">YOUR TOOLKIT</p>
+                    <h2>Choose a workspace</h2>
+                </div>
+                <span class="muted">02 MODULES</span>
+            </div>
+
+            <div class="module-grid">
+                <article class="module-card route-card">
+                    <div class="card-top">
+                        <span class="module-icon">↗</span>
+                        <span class="module-number">01 / ROUTING</span>
+                    </div>
+                    <h3>Distance & Route Planner</h3>
+                    <p>
+                        Plan a delivery round trip across Goa. Expand to
+                        destinations across India as the project grows.
+                    </p>
+                    <div class="tag-row">
+                        <span>Branch and Bound</span>
+                        <span>Road distances</span>
+                    </div>
+                    <button class="primary-button"
+                            onclick="showPage('route')">
+                        Open route planner <span>→</span>
+                    </button>
+                </article>
+
+                <article class="module-card text-card">
+                    <div class="card-top">
+                        <span class="module-icon">⌕</span>
+                        <span class="module-number">02 / TEXT ANALYSIS</span>
+                    </div>
+                    <h3>Plagiarism Lab</h3>
+                    <p>
+                        Compare documents, locate exact matching passages,
+                        and inspect sentence-level similarity.
+                    </p>
+                    <div class="tag-row">
+                        <span>KMP</span>
+                        <span>Boyer–Moore</span>
+                        <span>Similarity</span>
+                    </div>
+                    <button class="primary-button"
+                            onclick="showPage('plagiarism')">
+                        Open plagiarism lab <span>→</span>
+                    </button>
+                </article>
+            </div>
+
+            <div class="notice">
+                <span class="notice-icon">i</span>
+                <p>
+                    <strong>Designed for transparency.</strong>
+                    Route recommendations will use road-distance data.
+                    Text similarity indicates overlap; it does not by itself
+                    prove plagiarism.
+                </p>
+            </div>
+        </section>
+
+        <section id="page-route" class="page hidden">
+            <div class="page-intro">
+                <span class="pill">MODULE 01</span>
+                <h2>Distance & Route Planner</h2>
+                <p>
+                    Start in Goa, choose delivery locations, and find an
+                    efficient round trip using Branch and Bound.
+                </p>
+            </div>
+
+            <div class="workspace-card">
+                <h3>Plan a delivery journey</h3>
+                <p class="muted">
+                    The location search and road-distance calculation will
+                    be connected in the next implementation step.
+                </p>
+
+                <label for="start-location">Starting location</label>
+                <input id="start-location" type="text"
+                       placeholder="e.g. Panaji, Goa, India">
+
+                <label for="destinations">Delivery locations</label>
+                <textarea id="destinations" rows="4"
+                    placeholder="Margao, Goa, India&#10;Mapusa, Goa, India&#10;Ponda, Goa, India"></textarea>
+
+                <p class="field-hint">
+                    Enter one location per line. Start with Goa; later you
+                    will be able to select locations throughout India.
+                </p>
+
+                <button class="primary-button" type="button"
+                        onclick="alert('Next step: connect place search, road distances, and Branch and Bound.')">
+                    Calculate optimal route <span>→</span>
+                </button>
+            </div>
+
+            <div class="info-grid">
+                <div class="mini-card">
+                    <span class="mini-icon">⌖</span>
+                    <h3>Real locations</h3>
+                    <p>Search for towns and cities instead of inventing city labels.</p>
+                </div>
+                <div class="mini-card">
+                    <span class="mini-icon">↻</span>
+                    <h3>Round-trip planning</h3>
+                    <p>Return to your starting point after visiting the destinations.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="page-plagiarism" class="page hidden">
+            <div class="page-intro">
+                <span class="pill">MODULE 02</span>
+                <h2>Plagiarism Lab</h2>
+                <p>
+                    Compare two pieces of writing and distinguish exact
+                    matches from broader sentence similarity.
+                </p>
+            </div>
+
+            <div class="workspace-card">
+                <h3>Compare two documents</h3>
+                <p class="muted">
+                    The comparison algorithms will be connected in the next
+                    implementation step.
+                </p>
+
+                <label for="document-a">Document A — Original or reference</label>
+                <textarea id="document-a" rows="6"
+                    placeholder="Paste the first document here..."></textarea>
+
+                <label for="document-b">Document B — Document to check</label>
+                <textarea id="document-b" rows="6"
+                    placeholder="Paste the second document here..."></textarea>
+
+                <label for="search-algorithm">Exact matching algorithm</label>
+                <select id="search-algorithm">
+                    <option value="kmp">Knuth–Morris–Pratt (KMP)</option>
+                    <option value="boyer-moore">Boyer–Moore</option>
+                </select>
+
+                <button class="primary-button" type="button"
+                        onclick="alert('Next step: connect KMP, Boyer–Moore, and sentence-level similarity analysis.')">
+                    Analyse documents <span>→</span>
+                </button>
+            </div>
+
+            <div class="info-grid">
+                <div class="mini-card">
+                    <span class="mini-icon">⌕</span>
+                    <h3>Exact passage matches</h3>
+                    <p>Locate matching text and show where each match occurs.</p>
+                </div>
+                <div class="mini-card">
+                    <span class="mini-icon">▤</span>
+                    <h3>Sentence similarity</h3>
+                    <p>Compare sentences and report their similarities separately.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <span>ROUTEWISE</span>
+            <span>Python · Flask · Algorithm Design</span>
+        </footer>
+    </main>
+
+    <script>
+        function showPage(page) {
+            const pages = ["home", "route", "plagiarism"];
+
+            pages.forEach(function (name) {
+                document.getElementById("page-" + name)
+                    .classList.toggle("hidden", name !== page);
+
+                const nav = document.getElementById("nav-" + name);
+                if (nav) {
+                    nav.classList.toggle("active", name === page);
+                }
+            });
+
+            const titles = {
+                home: "Your algorithm workspace",
+                route: "Distance & Route Planner",
+                plagiarism: "Plagiarism Lab"
+            };
+
+            document.getElementById("page-title").textContent = titles[page];
+        }
+    </script>
+</body>
+</html>
